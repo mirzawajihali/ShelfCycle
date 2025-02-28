@@ -12,6 +12,7 @@ import Root from './component/Root/Root';
 import ErrorPage from './component/ErrorPage/ErrorPage';
 import Home from './component/Home/Home';
 import DashBoard from './component/Dashboard/DashBoard';
+import BookDetail from './component/BookDetail/BookDetail';
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,11 @@ const router = createBrowserRouter([
     children: [
       {path:'/', 
         element: <Home></Home>,
+  },
+  {
+    path:'books/:bookId',
+    element : <BookDetail></BookDetail>,
+    loader: () => fetch('booksData.json')
   },
   {
     path:"dashboard",
